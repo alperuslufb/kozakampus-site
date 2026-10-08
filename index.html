@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="tr" class="tema-aksam">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Koza Kampüs — YKS için konu testleri, anlatımlar ve denemeler</title>
+    <meta
+      name="description"
+      content="YKS (TYT/AYT) hazırlığı için dijital içerik platformu. Hoca onaylı konu testleri, video konu anlatımları ve süreli denemeler. Tamamladığın her içerik kampüs adanda bir bina olur."
+    />
+    <meta name="theme-color" content="#0b1424" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f6f2e8" media="(prefers-color-scheme: light)" />
+    <link rel="icon" href="logo.svg" type="image/svg+xml" />
+    <meta property="og:title" content="Koza Kampüs" />
+    <meta property="og:description" content="YKS için konu testleri, konu anlatımları ve denemeler. Tamamladığın her içerik kampüs adanda bir bina olur." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kozakampus.com/" />
+    <style>
+      /* Fontlar: web/src/stil/fontlar.css ile aynı dosyalar (SIL OFL 1.1); dış istek yok */
+      @font-face { font-family: "Baloo 2"; font-weight: 700; font-display: swap; src: url(fonts/baloo-2-latin-700-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Baloo 2"; font-weight: 700; font-display: swap; src: url(fonts/baloo-2-tr-700-normal.woff2) format("woff2"); unicode-range: U+011E-011F, U+0130, U+015E-015F; }
+      @font-face { font-family: "Figtree"; font-weight: 400; font-display: swap; src: url(fonts/figtree-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Figtree"; font-weight: 400; font-display: swap; src: url(fonts/figtree-tr-400-normal.woff2) format("woff2"); unicode-range: U+011E-011F, U+0130, U+015E-015F; }
+      @font-face { font-family: "Figtree"; font-weight: 600; font-display: swap; src: url(fonts/figtree-latin-600-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Figtree"; font-weight: 600; font-display: swap; src: url(fonts/figtree-tr-600-normal.woff2) format("woff2"); unicode-range: U+011E-011F, U+0130, U+015E-015F; }
+
+      /* Token'lar: web/src/stil/tokens.css (tasarım şartnamesi 2) */
+      :root {
+        --c-zemin: #0b1424;
+        --c-yuzey: #131c2c;
+        --c-yuzey-2: #1a2538;
+        --c-cizgi: #26344d;
+        --c-metin: #f3efe4;
+        --c-metin-2: #9fb0c6;
+        --c-isik: #ffd97a;
+        --c-isik-dolgu: #ffd97a;
+        --c-isik-ustu: #2a2118;
+        --c-isik-metin: #ffd97a;
+        --c-dogru: #6fbf73;
+        --c-yanlis: #e4572e;
+        --c-sonuk: #606f88;
+        --c-pencere-karanlik: #161e2b;
+        --c-pencere-isik: #ffd97a;
+        --c-odak: #ffd97a;
+        --ders-mat: #c4563f; --ders-geo: #3f7cac; --ders-fiz: #5b5f97; --ders-kim: #3a8f7b;
+        --ders-biy: #6fbf73; --ders-tur: #b5523b; --ders-tar: #a9714b; --ders-cog: #2f6f8f;
+        --ders-fel: #6c5b9b; --ders-din: #4f8a8b; --ders-ede: #8c3f4d; --ders-dil: #d1603d;
+        --t-ekran: 32px; --t-ekran-satir: 38px;
+        --t-baslik: 24px; --t-baslik-satir: 28px;
+        --t-kart: 18px; --t-kart-satir: 22px;
+        --t-govde: 16px; --t-govde-satir: 24px;
+        --t-kucuk: 14px; --t-kucuk-satir: 20px;
+        --t-etiket: 13px; --t-etiket-satir: 18px;
+        --t-dugme: 17px; --t-dugme-satir: 24px;
+        --r-kucuk: 12px; --r-kart: 16px; --r-buyuk: 20px; --r-tam: 9999px;
+        --icerik-en: 1120px;
+        --h-normal: 200ms;
+        color-scheme: dark;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --c-zemin: #f6f2e8;
+          --c-yuzey: #ffffff;
+          --c-yuzey-2: #efe9db;
+          --c-cizgi: #ddd5c3;
+          --c-metin: #1d2433;
+          --c-metin-2: #5b6678;
+          --c-isik: #ffc93c;
+          --c-isik-dolgu: #b67a00;
+          --c-isik-ustu: #2a2118;
+          --c-isik-metin: #8a5a00;
+          --c-dogru: #2f8f4e;
+          --c-yanlis: #c4411f;
+          --c-sonuk: #7d8797;
+          --c-pencere-karanlik: #c3cad4;
+          --c-pencere-isik: #c98a00;
+          --c-odak: #1d2433;
+          color-scheme: light;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) { :root { --h-normal: 0ms; } }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--c-zemin);
+        color: var(--c-metin);
+        font: 400 var(--t-govde) / var(--t-govde-satir) "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3 { font-family: "Baloo 2", "Figtree", system-ui, sans-serif; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+      p { margin: 0; }
+      a { color: inherit; }
+      :focus-visible { outline: 2px solid var(--c-odak); outline-offset: 3px; border-radius: 4px; }
+      .kap { max-width: var(--icerik-en); margin: 0 auto; padding: 0 16px; }
+      @media (min-width: 720px) { .kap { padding: 0 32px; } }
+
+      /* Üst çubuk */
+      .ust { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; }
+      .marka { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-family: "Baloo 2", system-ui, sans-serif; font-weight: 700; font-size: var(--t-kart); line-height: var(--t-kart-satir); }
+      .marka img { width: 36px; height: 36px; border-radius: 9px; }
+      .ust nav { display: flex; gap: 8px; }
+      .baglanti { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: var(--r-tam); color: var(--c-metin-2); text-decoration: none; font-weight: 600; font-size: var(--t-kucuk); transition: color var(--h-normal), background var(--h-normal); }
+      .baglanti:hover { color: var(--c-metin); background: var(--c-yuzey); }
+
+      /* Açılış */
+      .acilis { display: grid; gap: 40px; padding: 48px 0 24px; align-items: center; }
+      @media (min-width: 900px) { .acilis { grid-template-columns: 1.05fr 1fr; padding: 72px 0 40px; } }
+      .etiket { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--c-cizgi); border-radius: var(--r-tam); background: var(--c-yuzey); color: var(--c-metin-2); font-size: var(--t-etiket); line-height: var(--t-etiket-satir); font-weight: 600; }
+      .etiket::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c-isik-dolgu); }
+      .acilis h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.08; margin: 20px 0 16px; }
+      .acilis h1 em { font-style: normal; color: var(--c-isik-metin); }
+      .acilis .alt { color: var(--c-metin-2); font-size: var(--t-kart); line-height: 28px; max-width: 34em; }
+      .eylemler { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+      .dugme { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: var(--r-tam); text-decoration: none; font-weight: 600; font-size: var(--t-dugme); line-height: var(--t-dugme-satir); transition: transform var(--h-normal), background var(--h-normal); }
+      .dugme:active { transform: translateY(1px); }
+      .dugme-birincil { background: var(--c-isik); color: var(--c-isik-ustu); }
+      .dugme-ikincil { border: 1px solid var(--c-cizgi); color: var(--c-metin); background: var(--c-yuzey); }
+      .dugme-ikincil:hover { background: var(--c-yuzey-2); }
+      .ipucu { margin-top: 14px; color: var(--c-sonuk); font-size: var(--t-etiket); line-height: var(--t-etiket-satir); }
+
+      /* Ada çizimi */
+      .ada { position: relative; border: 1px solid var(--c-cizgi); border-radius: var(--r-buyuk); background: var(--c-yuzey); overflow: hidden; }
+      .ada svg { display: block; width: 100%; height: auto; }
+      .ada .bilgi { position: absolute; left: 16px; top: 16px; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+      @media (max-width: 719px) { .ada .bilgi { position: static; padding: 0 16px 16px; } .marka { white-space: nowrap; } }
+      .cip { padding: 6px 10px; border-radius: var(--r-kucuk); background: var(--c-zemin); border: 1px solid var(--c-cizgi); color: var(--c-metin-2); font-size: var(--t-etiket); line-height: var(--t-etiket-satir); font-weight: 600; }
+      .cip b { color: var(--c-metin); font-weight: 600; }
+
+      /* Bölümler */
+      section { padding: 56px 0; }
+      @media (min-width: 900px) { section { padding: 80px 0; } }
+      .bolum-baslik { max-width: 36em; margin-bottom: 32px; }
+      .bolum-baslik h2 { font-size: var(--t-ekran); line-height: var(--t-ekran-satir); margin-bottom: 10px; }
+      .bolum-baslik p { color: var(--c-metin-2); font-size: var(--t-kart); line-height: 28px; }
+      .kartlar { display: grid; gap: 16px; }
+      @media (min-width: 720px) { .kartlar { grid-template-columns: repeat(3, 1fr); } }
+      .kart { padding: 24px; border: 1px solid var(--c-cizgi); border-radius: var(--r-kart); background: var(--c-yuzey); }
+      .kart .nokta { width: 12px; height: 12px; border-radius: 50%; margin-bottom: 16px; }
+      .kart h3 { font-size: var(--t-kart); line-height: var(--t-kart-satir); margin-bottom: 8px; }
+      .kart p { color: var(--c-metin-2); font-size: var(--t-kucuk); line-height: var(--t-kucuk-satir); }
+
+      /* İlke bölümü */
+      .ilke { border: 1px solid var(--c-cizgi); border-radius: var(--r-buyuk); background: var(--c-yuzey); padding: 28px; display: grid; gap: 28px; }
+      @media (min-width: 900px) { .ilke { grid-template-columns: 1fr 1fr; padding: 40px; align-items: center; } }
+      .ilke h2 { font-size: var(--t-baslik); line-height: var(--t-baslik-satir); margin-bottom: 10px; }
+      .ilke p { color: var(--c-metin-2); }
+      .ornek { border-radius: var(--r-kart); background: var(--c-zemin); border: 1px solid var(--c-cizgi); padding: 20px; }
+      .ornek .k { color: var(--c-sonuk); font-size: var(--t-etiket); line-height: var(--t-etiket-satir); font-weight: 600; margin-bottom: 8px; }
+      .ornek .sayilar { font-family: "Baloo 2", system-ui, sans-serif; font-weight: 700; font-size: var(--t-baslik); line-height: var(--t-baslik-satir); display: flex; flex-wrap: wrap; gap: 6px 14px; }
+      .ornek .dogru { color: var(--c-dogru); } .ornek .yanlis { color: var(--c-yanlis); } .ornek .bos { color: var(--c-sonuk); }
+      .ornek .cubuk { display: flex; height: 10px; border-radius: var(--r-tam); overflow: hidden; margin-top: 14px; background: var(--c-yuzey-2); }
+      .ornek .cubuk span { display: block; height: 100%; }
+      .ornek .alt { margin-top: 12px; color: var(--c-metin-2); font-size: var(--t-kucuk); line-height: var(--t-kucuk-satir); }
+
+      /* Kapanış */
+      .kapanis { text-align: center; padding: 64px 0 80px; }
+      .kapanis h2 { font-size: var(--t-ekran); line-height: var(--t-ekran-satir); margin-bottom: 12px; }
+      .kapanis p { color: var(--c-metin-2); max-width: 34em; margin: 0 auto 24px; }
+      footer { border-top: 1px solid var(--c-cizgi); padding: 24px 0 40px; color: var(--c-sonuk); font-size: var(--t-etiket); line-height: var(--t-etiket-satir); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+      footer a { color: var(--c-metin-2); text-decoration: none; }
+      footer a:hover { color: var(--c-metin); }
+    </style>
+  </head>
+  <body>
+    <div class="kap">
+      <header class="ust">
+        <a class="marka" href="/" aria-label="Koza Kampüs ana sayfa">
+          <img src="logo.svg" alt="" width="36" height="36" />
+          Koza Kampüs
+        </a>
+        <nav aria-label="Sayfa">
+          <a class="baglanti" href="#icerik">İçerik</a>
+          <a class="baglanti" href="#ilke">İlke</a>
+          <a class="baglanti" href="#iletisim">İletişim</a>
+        </nav>
+      </header>
+
+      <main>
+        <div class="acilis">
+          <div>
+            <span class="etiket">YKS · TYT ve AYT</span>
+            <h1>Çöz, izle, tamamla.<br />Kampüsün <em>yükselsin</em>.</h1>
+            <p class="alt">
+              Konu testleri, konu anlatımları ve denemeler bir arada. Tamamladığın her test ve anlatım, kampüs adanda
+              bir binaya dönüşür.
+            </p>
+            <div class="eylemler">
+              <a class="dugme dugme-birincil" href="#iletisim">Pilota katıl</a>
+              <a class="dugme dugme-ikincil" href="#icerik">Neler var</a>
+            </div>
+            <p class="ipucu">Parola yok. Telefon numaran ve SMS koduyla girersin.</p>
+          </div>
+
+          <figure class="ada" aria-label="Kampüs adası: her ders için bir bina, tamamlanan içerikle kat kat yükselir">
+            <!-- Özgün çizim: ders renkleri tokens.css 2.1'deki çatı renkleridir -->
+            <svg viewBox="0 0 560 360" role="img" aria-hidden="true">
+              <defs>
+                <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="var(--c-yuzey)" />
+                  <stop offset="1" stop-color="var(--c-yuzey-2)" />
+                </linearGradient>
+              </defs>
+              <rect width="560" height="360" fill="url(#gok)" />
+              <!-- yıldızlar / ışık -->
+              <g fill="var(--c-isik)" opacity="0.55">
+                <circle cx="70" cy="48" r="1.6" /><circle cx="140" cy="30" r="1.2" /><circle cx="230" cy="62" r="1.4" />
+                <circle cx="330" cy="36" r="1.2" /><circle cx="420" cy="58" r="1.6" /><circle cx="500" cy="40" r="1.2" />
+              </g>
+              <!-- su -->
+              <ellipse cx="280" cy="330" rx="300" ry="36" fill="var(--c-zemin)" opacity="0.6" />
+              <!-- ada -->
+              <path d="M60 300 C100 250 160 262 220 258 C300 254 380 246 460 270 C500 282 520 298 500 312 C420 332 150 334 60 300 Z" fill="var(--c-yuzey-2)" stroke="var(--c-cizgi)" />
+              <!-- binalar: gövde yuzey, pencere karanlik/isik, çatı ders rengi -->
+              <g stroke="var(--c-cizgi)" stroke-width="1">
+                <!-- Matematik: 4 kat -->
+                <rect x="96" y="150" width="54" height="130" fill="var(--c-yuzey)" />
+                <rect x="96" y="140" width="54" height="12" fill="var(--ders-mat)" stroke="none" />
+                <!-- Türkçe: 3 kat -->
+                <rect x="170" y="180" width="48" height="100" fill="var(--c-yuzey)" />
+                <rect x="170" y="170" width="48" height="12" fill="var(--ders-tur)" stroke="none" />
+                <!-- Fizik: 2 kat -->
+                <rect x="238" y="210" width="44" height="70" fill="var(--c-yuzey)" />
+                <rect x="238" y="200" width="44" height="12" fill="var(--ders-fiz)" stroke="none" />
+                <!-- Kimya: 3 kat -->
+                <rect x="302" y="180" width="48" height="100" fill="var(--c-yuzey)" />
+                <rect x="302" y="170" width="48" height="12" fill="var(--ders-kim)" stroke="none" />
+                <!-- Biyoloji: 1 kat -->
+                <rect x="370" y="240" width="44" height="40" fill="var(--c-yuzey)" />
+                <rect x="370" y="230" width="44" height="12" fill="var(--ders-biy)" stroke="none" />
+                <!-- Tarih: 2 kat -->
+                <rect x="434" y="210" width="44" height="70" fill="var(--c-yuzey)" />
+                <rect x="434" y="200" width="44" height="12" fill="var(--ders-tar)" stroke="none" />
+              </g>
+              <!-- pencereler -->
+              <g>
+                <g fill="var(--c-pencere-isik)">
+                  <rect x="106" y="162" width="10" height="12" rx="2" /><rect x="128" y="162" width="10" height="12" rx="2" />
+                  <rect x="106" y="192" width="10" height="12" rx="2" /><rect x="128" y="222" width="10" height="12" rx="2" />
+                  <rect x="180" y="192" width="10" height="12" rx="2" /><rect x="198" y="222" width="10" height="12" rx="2" />
+                  <rect x="248" y="222" width="10" height="12" rx="2" /><rect x="312" y="192" width="10" height="12" rx="2" />
+                  <rect x="330" y="252" width="10" height="12" rx="2" /><rect x="444" y="222" width="10" height="12" rx="2" />
+                </g>
+                <g fill="var(--c-pencere-karanlik)">
+                  <rect x="128" y="192" width="10" height="12" rx="2" /><rect x="106" y="222" width="10" height="12" rx="2" />
+                  <rect x="106" y="252" width="10" height="12" rx="2" /><rect x="128" y="252" width="10" height="12" rx="2" />
+                  <rect x="198" y="192" width="10" height="12" rx="2" /><rect x="180" y="222" width="10" height="12" rx="2" />
+                  <rect x="180" y="252" width="10" height="12" rx="2" /><rect x="198" y="252" width="10" height="12" rx="2" />
+                  <rect x="266" y="222" width="10" height="12" rx="2" /><rect x="248" y="252" width="10" height="12" rx="2" /><rect x="266" y="252" width="10" height="12" rx="2" />
+                  <rect x="330" y="192" width="10" height="12" rx="2" /><rect x="312" y="222" width="10" height="12" rx="2" /><rect x="330" y="222" width="10" height="12" rx="2" /><rect x="312" y="252" width="10" height="12" rx="2" />
+                  <rect x="380" y="252" width="10" height="12" rx="2" /><rect x="398" y="252" width="10" height="12" rx="2" />
+                  <rect x="462" y="222" width="10" height="12" rx="2" /><rect x="444" y="252" width="10" height="12" rx="2" /><rect x="462" y="252" width="10" height="12" rx="2" />
+                </g>
+              </g>
+              <!-- ders noktaları -->
+              <g>
+                <circle cx="123" cy="296" r="5" fill="var(--ders-mat)" /><circle cx="194" cy="298" r="5" fill="var(--ders-tur)" />
+                <circle cx="260" cy="300" r="5" fill="var(--ders-fiz)" /><circle cx="326" cy="300" r="5" fill="var(--ders-kim)" />
+                <circle cx="392" cy="298" r="5" fill="var(--ders-biy)" /><circle cx="456" cy="296" r="5" fill="var(--ders-tar)" />
+              </g>
+            </svg>
+            <figcaption class="bilgi">
+              <span class="cip"><b>Matematik</b> · 12/18 tamamlandı</span>
+              <span class="cip"><b>Fizik</b> · 4/16 tamamlandı</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <section id="icerik">
+          <div class="bolum-baslik">
+            <h2>Üç tür içerik, tek yer</h2>
+            <p>Kazanım bazlı, sürekli büyüyen bir havuz. Öğrenciye yalnızca hoca onayından geçmiş soru gösterilir.</p>
+          </div>
+          <div class="kartlar">
+            <article class="kart">
+              <div class="nokta" style="background: var(--ders-mat)"></div>
+              <h3>Konu testleri</h3>
+              <p>Her konunun testleri sırayla. Şekil, soru, şıklar; yanına karalama alanı ve notların. Çözüm ekranında adım adım yazılı çözüm.</p>
+            </article>
+            <article class="kart">
+              <div class="nokta" style="background: var(--ders-kim)"></div>
+              <h3>Konu anlatımları</h3>
+              <p>Bölümlere ayrılmış video anlatımlar. Kaldığın yerden devam edersin; izlerken not alırsın, notların Notlarım'da toplanır.</p>
+            </article>
+            <article class="kart">
+              <div class="nokta" style="background: var(--ders-geo)"></div>
+              <h3>Denemeler</h3>
+              <p>TYT ve AYT denemeleri gerçek süreyle, ders bazında denemeler süresiz. Teslimden sonra karne: net, ders ve konu dökümü, çözümler.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="ilke">
+          <div class="ilke">
+            <div>
+              <h2>Olguyu gösterir, hüküm vermez</h2>
+              <p>
+                Koza Kampüs sana ne çalışacağını söylemez; ne yaptığını gösterir. Kaç doğru, kaç yanlış, kaç boş; kaç
+                test tamamlandı. Etiket, sıralama ve puanlama yoktur. Bina yalnızca tamamladığın içerikle yükselir,
+                doğru ya da yanlış sayısı binayı etkilemez ve bina gerilemez.
+              </p>
+            </div>
+            <div class="ornek" aria-label="Örnek test sonucu">
+              <div class="k">TYT Deneme 3 · Türkçe</div>
+              <div class="sayilar">
+                <span class="dogru">28 doğru</span>
+                <span class="yanlis">8 yanlış</span>
+                <span class="bos">4 boş</span>
+              </div>
+              <div class="cubuk" aria-hidden="true">
+                <span style="width: 70%; background: var(--c-dogru)"></span>
+                <span style="width: 20%; background: var(--c-yanlis)"></span>
+                <span style="width: 10%; background: var(--c-sonuk)"></span>
+              </div>
+              <p class="alt">Net 26,00 · Yanlış ve boş bıraktıkların Tekrar defterine düşer; istediğinde yeniden çözersin.</p>
+            </div>
+          </div>
+        </section>
+
+
+        <section id="iletisim" class="kapanis">
+          <h2>Pilot için yaz</h2>
+          <p>İlk pilot az sayıda öğrenciyle başlıyor. Katılmak ya da içerik sağlamak için bir e-posta yeter.</p>
+          <a class="dugme dugme-birincil" href="mailto:info@kozakampus.com">info@kozakampus.com</a>
+        </section>
+      </main>
+
+      <footer>
+        <span>© 2026 Koza Kampüs</span>
+        <span><a href="mailto:info@kozakampus.com">info@kozakampus.com</a></span>
+      </footer>
+    </div>
+  </body>
+</html>
